@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri par Insertion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Algorithme de Tri par Insertion</h1>
+
+    <p>Cliquer sur le bouton pour trier le tableau avec l'algorithme de tri par insertion.</p>
+
+    <button onclick="insertionSort()">Trier le tableau</button>
+
+    <div class="output" id="output"></div>
+
+    <script>
+        // Fonction de tri par insertion
+        function insertionSort() {
+            let arr = [9, 5, 1, 4, 3, 67]; // Tableau d'exemple
+            let n = arr.length;
+
+            for (let i = 1; i < n; i++) {
+                let current = arr[i];
+                let j = i - 1;
+
+                // Insère l'élément arr[i] dans la séquence triée arr[0] à arr[i-1]
+                while (j >= 0 && arr[j] > current) {
+                    arr[j + 1] = arr[j];
+                    j--;
+                }
+                arr[j + 1] = current;
+            }
+
+            // Affichage du résultat
+            document.getElementById("output").innerHTML = "Tableau trié : " + arr.join(", ");
+        }
+    </script>
+
+</body>
+</html>
